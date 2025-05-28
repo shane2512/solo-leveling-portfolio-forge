@@ -33,14 +33,14 @@ const ContactPortal = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       toast({
-        title: ">> Message Sent to Guildmaster",
+        title: "{'>> Message Sent to Guildmaster'}",
         description: "Transmission successful. Response expected within 24 hours.",
       });
       
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       toast({
-        title: ">> Transmission Error",
+        title: "{'>> Transmission Error'}",
         description: "Portal connection failed. Please try alternative communication methods.",
         variant: "destructive",
       });
@@ -195,7 +195,7 @@ const ContactPortal = () => {
                 ) : (
                   <div className="flex items-center gap-2">
                     <Send size={18} />
-                    >> Initiate Transmission
+                    {'>> Initiate Transmission'}
                   </div>
                 )}
               </Button>

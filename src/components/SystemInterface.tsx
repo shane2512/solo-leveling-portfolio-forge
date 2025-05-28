@@ -91,7 +91,7 @@ const SystemInterface = () => {
                         className="w-full bg-gradient-to-r from-primary to-secondary text-background font-orbitron font-bold py-6 text-lg neon-glow"
                         onClick={() => setActiveTab('stats')}
                       >
-                        >> Start Journey
+                        {'>> Start Journey'}
                       </Button>
                       <div className="grid grid-cols-2 gap-4">
                         <Button 
