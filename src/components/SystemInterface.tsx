@@ -2,10 +2,8 @@
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Terminal, User, Briefcase, Trophy, BookOpen, MessageSquare } from 'lucide-react';
+import { Terminal, User, Briefcase, Trophy, BookOpen, MessageSquare, FileText } from 'lucide-react';
 import EnhancedHologramCube from './EnhancedHologramCube';
 import SystemTerminal from './SystemTerminal';
 import StatsDisplay from './StatsDisplay';
@@ -13,15 +11,21 @@ import QuestBoard from './QuestBoard';
 import SkillTree from './SkillTree';
 import SystemLogs from './SystemLogs';
 import ContactPortal from './ContactPortal';
+import SkillsSummaryDialog from './SkillsSummaryDialog';
+import InventorySidebar from './InventorySidebar';
+import ResumeTab from './ResumeTab';
 
 const SystemInterface = () => {
   const [activeTab, setActiveTab] = useState('home');
+  const [skillsDialogOpen, setSkillsDialogOpen] = useState(false);
+  const [inventoryOpen, setInventoryOpen] = useState(false);
 
   const tabs = [
     { id: 'home', label: 'System Boot', icon: Terminal },
     { id: 'stats', label: 'Stats', icon: User },
     { id: 'quests', label: 'Quests', icon: Briefcase },
     { id: 'skills', label: 'Skills', icon: Trophy },
+    { id: 'resume', label: 'Resume', icon: FileText },
     { id: 'logs', label: 'Logs', icon: BookOpen },
     { id: 'contact', label: 'Portal Access', icon: MessageSquare },
   ];
@@ -89,7 +93,7 @@ const SystemInterface = () => {
                     <div className="space-y-4">
                       <Button 
                         className="w-full bg-gradient-to-r from-primary to-secondary text-background font-orbitron font-bold py-6 text-lg neon-glow"
-                        onClick={() => setActiveTab('stats')}
+                        onClick={() => setSkillsDialogOpen(true)}
                       >
                         {'>> Start Journey'}
                       </Button>
@@ -104,7 +108,7 @@ const SystemInterface = () => {
                         <Button 
                           variant="outline" 
                           className="border-secondary/50 text-secondary hover:bg-secondary/10"
-                          onClick={() => setActiveTab('skills')}
+                          onClick={() => setInventoryOpen(true)}
                         >
                           Inventory
                         </Button>
@@ -134,6 +138,10 @@ const SystemInterface = () => {
               <SkillTree />
             </TabsContent>
 
+            <TabsContent value="resume" className="m-0 p-8">
+              <ResumeTab />
+            </TabsContent>
+
             <TabsContent value="logs" className="m-0 p-8">
               <SystemLogs />
             </TabsContent>
@@ -144,6 +152,16 @@ const SystemInterface = () => {
           </div>
         </Tabs>
       </div>
+
+      {/* Dialogs and Sidebars */}
+      <SkillsSummaryDialog 
+        open={skillsDialogOpen} 
+        onOpenChange={setSkillsDialogOpen} 
+      />
+      <InventorySidebar 
+        open={inventoryOpen} 
+        onOpenChange={setInventoryOpen} 
+      />
     </div>
   );
 };

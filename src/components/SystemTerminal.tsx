@@ -8,7 +8,7 @@ const SystemTerminal = () => {
   const terminalLines = [
     '>> Initializing System...',
     '>> Loading User Profile...',
-    '>> Welcome, Shane Joans.',
+    '>> Welcome, Visitor.',
     '>> System Status: OPERATIONAL',
     '>> Ready for Mission Assignment.'
   ];
