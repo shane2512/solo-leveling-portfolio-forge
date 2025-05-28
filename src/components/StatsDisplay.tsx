@@ -4,12 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const StatsDisplay = () => {
   const stats = [
-    { name: 'Frontend Mastery', value: 85, color: 'from-blue-500 to-cyan-500' },
+    { name: 'Frontend Mastery', value: 70, color: 'from-blue-500 to-cyan-500' },
     { name: 'ML Skills', value: 70, color: 'from-purple-500 to-pink-500' },
-    { name: 'Teamwork', value: 90, color: 'from-green-500 to-emerald-500' },
-    { name: 'Problem Solving', value: 88, color: 'from-orange-500 to-red-500' },
-    { name: 'Communication', value: 82, color: 'from-indigo-500 to-purple-500' },
-    { name: 'Leadership', value: 75, color: 'from-yellow-500 to-orange-500' },
+    { name: 'Generative AI', value: 90, color: 'from-green-500 to-emerald-500' },
+    { name: 'Problem Solving', value: 80, color: 'from-orange-500 to-red-500' },
+    { name: 'Cloud Engineer', value: 50, color: 'from-indigo-500 to-purple-500' },
+    { name: 'Leadership', value: 60, color: 'from-yellow-500 to-orange-500' },
   ];
 
   const totalXP = 15420;

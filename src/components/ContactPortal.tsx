@@ -105,7 +105,7 @@ const ContactPortal = () => {
                 </div>
                 <div>
                   <p className="font-rajdhani font-medium text-foreground">Direct Email</p>
-                  <p className="text-muted-foreground text-sm">shane.joans@example.com</p>
+                  <p className="text-muted-foreground text-sm">shanejoans.27csb@licet.ac.in</p>
                 </div>
               </div>
               
@@ -115,7 +115,7 @@ const ContactPortal = () => {
                 </div>
                 <div>
                   <p className="font-rajdhani font-medium text-foreground">LinkedIn Network</p>
-                  <p className="text-muted-foreground text-sm">Professional inquiries welcome</p>
+                  <p className="text-muted-foreground text-sm">www.linkedin.com/in/sj1225</p>
                 </div>
               </div>
             </CardContent>

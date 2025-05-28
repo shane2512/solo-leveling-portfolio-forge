@@ -13,24 +13,24 @@ const SkillTree = () => {
       description: "Combat-ready abilities for immediate deployment",
       skills: [
         { 
-          name: "React Mastery", 
-          level: 85, 
+          name: "React & TypeScript", 
+          level: 70,
           maxLevel: 100,
-          description: "Gained through countless component battles and state management wars. Mastered hooks, context, and performance optimization.",
-          experience: "2850/3000 XP"
+          description: "Proficient in building scalable frontends with strong typing and reusable components.",
+          experience: "2500/3000 XP"
         },
-        { 
-          name: "TypeScript Proficiency", 
-          level: 90, 
+        {
+          name: "Streamlit + PyFlask",
+          level: 85,
           maxLevel: 100,
-          description: "Forged in the fires of type safety. Can catch bugs before they manifest in the material plane.",
-          experience: "2700/3000 XP"
+          description: "Used for creating fast, interactive AI dashboards and data apps with Python backend.",
+          experience: "2550/3000 XP"
         },
-        { 
-          name: "Three.js Manipulation", 
-          level: 75, 
+        {
+          name: "Docker",
+          level: 55,
           maxLevel: 100,
-          description: "Learned the ancient art of 3D web sorcery. Can bend reality to create immersive experiences.",
+          description: "Containerized apps for streamlined development and deployment in GenAI projects.",
           experience: "2250/3000 XP"
         }
       ]
@@ -39,55 +39,55 @@ const SkillTree = () => {
       title: "Passive Skills",
       description: "Continuously active abilities that enhance all operations",
       skills: [
-        { 
-          name: "Machine Learning Intuition", 
-          level: 70, 
+        {
+          name: "Prompt Engineering",
+          level: 88,
           maxLevel: 100,
-          description: "Awakened the ability to see patterns in chaos. Neural networks bend to my will.",
-          experience: "2100/3000 XP"
-        },
-        { 
-          name: "Problem Solving", 
-          level: 88, 
-          maxLevel: 100,
-          description: "Developed through facing countless debugging dungeons. No bug can hide for long.",
+          description: "Skilled in crafting prompts for Vertex AI & Gemini with structured and creative outputs.",
           experience: "2640/3000 XP"
         },
-        { 
-          name: "Code Architecture", 
-          level: 82, 
+        {
+          name: "Machine Learning & NLP",
+          level: 82,
           maxLevel: 100,
-          description: "Mastered the art of building scalable digital fortresses. Structure emerges from chaos.",
+          description: "Experienced in ML pipelines, preprocessing, and language tasks using TensorFlow & ChromaDB.",
           experience: "2460/3000 XP"
+        },
+        {
+          name: "UI Design & Web Dev",
+          level: 80,
+          maxLevel: 100,
+          description: "Designed interactive UIs with attention to usability, responsiveness, and 3D animation.",
+          experience: "2400/3000 XP"
         }
       ]
     },
     {
       title: "Unlocked Achievements",
-      description: "Rare certifications and legendary accomplishments",
-      skills: [
-        { 
-          name: "AWS Certified", 
-          level: 100, 
-          maxLevel: 100,
-          description: "Proven mastery over cloud kingdoms. Can summon infrastructure from the digital ether.",
-          experience: "MAX LEVEL"
-        },
-        { 
-          name: "GitHub Contributions", 
-          level: 95, 
-          maxLevel: 100,
-          description: "Left marks across the open-source realm. 500+ contributions and counting.",
-          experience: "2850/3000 XP"
-        },
-        { 
-          name: "Team Leadership", 
-          level: 78, 
-          maxLevel: 100,
-          description: "Earned through guiding fellow developers through treacherous project dungeons.",
-          experience: "2340/3000 XP"
-        }
-      ]
+      description: "Certifications & major AI accomplishments",
+    skills: [
+      {
+        name: "Google Generative AI Badge",
+        level: 100,
+        maxLevel: 100,
+        description: "Mastered Vertex AI, Gemini API, Imagen & RAG in applied AI badge courses.",
+        experience: "MAX LEVEL"
+      },
+      {
+        name: "Mistral AI Certification",
+        level: 95,
+        maxLevel: 100,
+        description: "Hands-on with ChromaDB, LangChain, and Retrieval-Augmented Generation.",
+        experience: "2850/3000 XP"
+      },
+      {
+        name: "Git & Version Control",
+        level: 90,
+        maxLevel: 100,
+        description: "Efficient with Git for team collaboration, branching, and open-source contribution.",
+        experience: "2700/3000 XP"
+      }
+    ]
     }
   ];
 

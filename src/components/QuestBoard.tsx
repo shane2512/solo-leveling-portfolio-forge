@@ -14,7 +14,7 @@ const QuestBoard = () => {
       objective: "Create an immersive web interface inspired by the Solo Leveling manhwa",
       tools: ["React", "TypeScript", "Three.js", "Tailwind CSS"],
       outcome: "Interactive 3D hologram system with responsive design",
-      status: "completed",
+      status: "in-progress",
       difficulty: "S-Rank",
       rewards: "+500 XP, +10 Frontend Mastery",
       screenshots: ["placeholder1.jpg", "placeholder2.jpg"],
@@ -22,41 +22,30 @@ const QuestBoard = () => {
       demo: "#"
     },
     {
-      title: "AI-Powered Analytics Dashboard",
+      title: "One Time File sharing System",
       objective: "Develop machine learning dashboard with real-time data visualization",
-      tools: ["Python", "React", "TensorFlow", "D3.js"],
-      outcome: "Predictive analytics with 94% accuracy rate",
+      tools: ["Python", "Streamlit", "MariaDB"],
+      outcome: "Produces a secure one time access links",
       status: "completed",
       difficulty: "A-Rank",
-      rewards: "+350 XP, +15 ML Skills",
+      rewards: "+350 XP, +15 Frontend Mastery ",
       screenshots: ["placeholder3.jpg"],
       github: "#",
       demo: "#"
     },
     {
-      title: "Blockchain DApp Development",
-      objective: "Build decentralized application with smart contracts",
-      tools: ["Solidity", "Web3.js", "React", "Ethereum"],
-      outcome: "Fully functional DApp with 1000+ users",
-      status: "in-progress",
+      title: "Deepfake Detection App",
+      objective: "Build a deepfake detection system with autoencoder reconstruction",
+      tools: ["Python", "Tensorflow","CNN"],
+      outcome: "To predict deepfake images to avoid identity frauds",
+      status: "completed",
       difficulty: "S-Rank",
-      rewards: "+600 XP, +20 Blockchain Skills",
+      rewards: "+600 XP, +20 ML Skills",
       screenshots: [],
       github: "#",
       demo: "#"
     },
-    {
-      title: "Real-time Collaboration Platform",
-      objective: "Create platform for team collaboration with live updates",
-      tools: ["Node.js", "Socket.io", "React", "MongoDB"],
-      outcome: "Seamless real-time experience for 100+ concurrent users",
-      status: "completed",
-      difficulty: "A-Rank",
-      rewards: "+400 XP, +12 Backend Skills",
-      screenshots: ["placeholder4.jpg"],
-      github: "#",
-      demo: "#"
-    }
+   
   ];
 
   const getStatusColor = (status: string) => {

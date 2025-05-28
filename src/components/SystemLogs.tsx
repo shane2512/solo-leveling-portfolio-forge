@@ -10,74 +10,50 @@ const SystemLogs = () => {
 
   const logs = [
     {
-      date: '2024-01-15',
+      date: '2024-10-17',
       title: 'Completed ML Capstone Project',
-      description: 'Successfully defended machine learning capstone with 98% accuracy on sentiment analysis model.',
-      category: 'AI',
+      description: 'Successfully defended machine learning capstone with 93% accuracy on injury analysis model.',
+      category: 'AI/ML',
       type: 'achievement',
       xp: '+300 XP'
     },
     {
-      date: '2024-01-10',
+      date: '2025-05-17',
       title: 'Published Article on Medium',
-      description: 'Article "Building Scalable React Applications" gained 5K+ views and 200+ claps.',
-      category: 'WebDev',
+      description: 'Article "Building Scalable Gen AI Applications".',
+      category: 'GenAI',
       type: 'publication',
       xp: '+150 XP'
     },
     {
-      date: '2023-12-20',
-      title: 'Won First Place at HackNY',
+      date: '2025-02-23',
+      title: 'Won First Place at CTRL+ALT+HACK',
       description: 'Led team of 4 developers to create innovative fintech solution in 48 hours.',
       category: 'Hackathons',
       type: 'competition',
       xp: '+500 XP'
     },
     {
-      date: '2023-12-01',
-      title: 'Completed AWS Certification',
-      description: 'Achieved AWS Certified Developer - Associate certification with 890/1000 score.',
+      date: '2025-05-28',
+      title: 'Completed Gen AI Academy Certification',
+      description: 'Achieved GenAI Certified Developer - certification.',
       category: 'Certifications',
       type: 'certification',
       xp: '+400 XP'
     },
     {
-      date: '2023-11-15',
-      title: 'Open Source Contribution',
-      description: 'Merged PR to popular React library, fixing critical performance issue affecting 100K+ users.',
-      category: 'OpenSource',
-      type: 'contribution',
-      xp: '+250 XP'
-    },
-    {
-      date: '2023-10-30',
+      date: '2025-05-29',
       title: 'Launched Personal Portfolio',
       description: 'Deployed Solo Leveling-inspired portfolio with 3D animations and system interface.',
       category: 'WebDev',
       type: 'project',
       xp: '+200 XP'
-    },
-    {
-      date: '2023-10-01',
-      title: 'Tech Talk at University',
-      description: 'Presented "The Future of Web Development" to 200+ computer science students.',
-      category: 'Speaking',
-      type: 'presentation',
-      xp: '+180 XP'
-    },
-    {
-      date: '2023-09-15',
-      title: 'Mentored Junior Developers',
-      description: 'Started mentoring program, helping 5 junior developers advance their skills.',
-      category: 'Mentoring',
-      type: 'teaching',
-      xp: '+220 XP'
     }
   ];
 
   const filters = [
     { id: 'all', label: 'All Logs', count: logs.length },
-    { id: 'AI', label: 'AI/ML', count: logs.filter(log => log.category === 'AI').length },
+    { id: 'AI/ML', label: 'AI/ML', count: logs.filter(log => log.category === 'AI/ML').length },
     { id: 'WebDev', label: 'Web Dev', count: logs.filter(log => log.category === 'WebDev').length },
     { id: 'Hackathons', label: 'Hackathons', count: logs.filter(log => log.category === 'Hackathons').length },
     { id: 'OpenSource', label: 'Open Source', count: logs.filter(log => log.category === 'OpenSource').length }
