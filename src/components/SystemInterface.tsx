@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Terminal, User, Briefcase, Trophy, BookOpen, MessageSquare, FileText } from 'lucide-react';
 import EnhancedHologramCube from './EnhancedHologramCube';
 import SystemTerminal from './SystemTerminal';
@@ -29,6 +28,18 @@ const SystemInterface = () => {
     { id: 'logs', label: 'Logs', icon: BookOpen },
     { id: 'contact', label: 'Portal Access', icon: MessageSquare },
   ];
+
+  const handleStartJourney = () => {
+    setSkillsDialogOpen(true);
+  };
+
+  const handleStatsClick = () => {
+    setActiveTab('stats');
+  };
+
+  const handleInventoryClick = () => {
+    setInventoryOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
@@ -93,7 +104,7 @@ const SystemInterface = () => {
                     <div className="space-y-4">
                       <Button 
                         className="w-full bg-gradient-to-r from-primary to-secondary text-background font-orbitron font-bold py-6 text-lg neon-glow"
-                        onClick={() => setSkillsDialogOpen(true)}
+                        onClick={handleStartJourney}
                       >
                         {'>> Start Journey'}
                       </Button>
@@ -101,14 +112,14 @@ const SystemInterface = () => {
                         <Button 
                           variant="outline" 
                           className="border-primary/50 text-primary hover:bg-primary/10"
-                          onClick={() => setActiveTab('stats')}
+                          onClick={handleStatsClick}
                         >
                           Stats
                         </Button>
                         <Button 
                           variant="outline" 
                           className="border-secondary/50 text-secondary hover:bg-secondary/10"
-                          onClick={() => setInventoryOpen(true)}
+                          onClick={handleInventoryClick}
                         >
                           Inventory
                         </Button>
