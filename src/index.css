@@ -8,34 +8,24 @@
   :root {
     --background: 0 0% 5%;
     --foreground: 210 40% 98%;
-
     --card: 0 0% 8%;
     --card-foreground: 210 40% 98%;
-
     --popover: 0 0% 8%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 195 100% 50%;
     --primary-foreground: 0 0% 5%;
-
     --secondary: 340 100% 50%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 0 0% 12%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 195 100% 50%;
     --accent-foreground: 0 0% 5%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 0 0% 15%;
     --input: 0 0% 12%;
     --ring: 195 100% 50%;
-
     --radius: 0.5rem;
-
     --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 195 100% 50%;
@@ -53,26 +43,32 @@
   }
 
   body {
-    @apply bg-background text-foreground font-rajdhani;
+    @apply bg-background text-foreground;
+    font-family: 'Rajdhani', sans-serif;
     overflow-x: hidden;
   }
 
   html {
     scroll-behavior: smooth;
   }
+
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
 }
 
 @layer components {
   .neon-glow {
-    filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor) drop-shadow(0 0 30px currentColor);
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
   }
 
   .neon-border {
-    border: 1px solid transparent;
-    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 102, 0.2)) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
   }
 
   .hero-gradient {
@@ -95,8 +91,27 @@
   }
 
   @keyframes pulse-glow {
-    0%, 100% { filter: brightness(1) drop-shadow(0 0 5px currentColor); }
-    50% { filter: brightness(1.2) drop-shadow(0 0 15px currentColor); }
+    0%, 100% { 
+      filter: brightness(1) drop-shadow(0 0 5px currentColor); 
+    }
+    50% { 
+      filter: brightness(1.2) drop-shadow(0 0 15px currentColor); 
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { 
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
   }
 
   @keyframes float {
