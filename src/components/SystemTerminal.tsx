@@ -39,19 +39,19 @@ const SystemTerminal = () => {
   }, [currentLineIndex]);
 
   return (
-    <div className="glass-effect rounded-lg p-6 border border-primary/30">
+    <div className="glass-effect rounded-lg p-6 border border-primary/30 bg-black/50">
       <div className="flex items-center gap-2 mb-4">
         <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
         <span className="font-orbitron text-primary text-sm">SYSTEM TERMINAL</span>
       </div>
       
-      <div className="font-mono text-sm space-y-1 min-h-[120px]">
+      <div className="font-mono text-sm space-y-2 min-h-[120px] bg-black/40 p-4 rounded border border-primary/20">
         {displayedText.split('\n').map((line, index) => (
           <div key={index} className="flex items-center gap-2">
-            <span className="text-primary">$</span>
-            <span className="text-foreground">{line}</span>
+            <span className="text-primary font-bold">$</span>
+            <span className="text-green-400 font-medium">{line}</span>
             {index === currentLineIndex && (
-              <span className="w-2 h-4 bg-primary animate-pulse ml-1"></span>
+              <span className="w-2 h-4 bg-green-400 animate-pulse ml-1"></span>
             )}
           </div>
         ))}

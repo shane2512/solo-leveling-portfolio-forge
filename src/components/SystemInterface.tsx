@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Terminal, User, Briefcase, Trophy, BookOpen, MessageSquare, FileText } from 'lucide-react';
-import EnhancedHologramCube from './EnhancedHologramCube';
+import Model3D from './Model3D';
 import SystemTerminal from './SystemTerminal';
 import StatsDisplay from './StatsDisplay';
 import QuestBoard from './QuestBoard';
@@ -30,14 +30,17 @@ const SystemInterface = () => {
   ];
 
   const handleStartJourney = () => {
+    console.log('Start Journey clicked - opening skills dialog');
     setSkillsDialogOpen(true);
   };
 
   const handleStatsClick = () => {
+    console.log('Stats clicked - navigating to stats tab');
     setActiveTab('stats');
   };
 
   const handleInventoryClick = () => {
+    console.log('Inventory clicked - opening inventory sidebar');
     setInventoryOpen(true);
   };
 
@@ -103,22 +106,22 @@ const SystemInterface = () => {
                     <SystemTerminal />
                     <div className="space-y-4">
                       <Button 
-                        className="w-full bg-gradient-to-r from-primary to-secondary text-background font-orbitron font-bold py-6 text-lg neon-glow"
+                        className="w-full bg-gradient-to-r from-primary to-secondary text-background font-orbitron font-bold py-6 text-lg neon-glow hover:scale-105 transition-transform"
                         onClick={handleStartJourney}
                       >
-                        {'>> Start Journey'}
+                        {'{>'}{'>'}  Start Journey
                       </Button>
                       <div className="grid grid-cols-2 gap-4">
                         <Button 
                           variant="outline" 
-                          className="border-primary/50 text-primary hover:bg-primary/10"
+                          className="border-primary/50 text-primary hover:bg-primary/10 font-rajdhani font-semibold py-4 hover:scale-105 transition-transform"
                           onClick={handleStatsClick}
                         >
                           Stats
                         </Button>
                         <Button 
                           variant="outline" 
-                          className="border-secondary/50 text-secondary hover:bg-secondary/10"
+                          className="border-secondary/50 text-secondary hover:bg-secondary/10 font-rajdhani font-semibold py-4 hover:scale-105 transition-transform"
                           onClick={handleInventoryClick}
                         >
                           Inventory
@@ -128,10 +131,7 @@ const SystemInterface = () => {
                   </div>
                   
                   <div className="relative">
-                    <div className="w-96 h-96 relative mx-auto">
-                      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl animate-glow-pulse"></div>
-                      <EnhancedHologramCube />
-                    </div>
+                    <Model3D useDummy={true} />
                   </div>
                 </div>
               </div>
