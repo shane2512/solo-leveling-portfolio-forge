@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
@@ -46,8 +45,8 @@ const SystemInterface = () => {
   };
 
   const handleInventoryClick = () => {
-    console.log('Inventory clicked - opening projects dialog');
-    setProjectsDialogOpen(true);
+    console.log('Inventory clicked - opening inventory sidebar');
+    setInventoryOpen(true);
   };
 
   // Stats data for the popup
@@ -254,38 +253,6 @@ const SystemInterface = () => {
                 <strong className="text-primary">Rank:</strong> S-Class Developer
               </p>
             </div>
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      {/* Projects Dialog */}
-      <Dialog open={projectsDialogOpen} onOpenChange={setProjectsDialogOpen}>
-        <DialogContent className="max-w-xl glass-effect border-primary/30">
-          <DialogHeader>
-            <DialogTitle className="font-orbitron text-primary text-xl neon-glow">
-              Quest Inventory
-            </DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4 max-h-[60vh] overflow-y-auto">
-            {projects.map((project, index) => (
-              <div key={index} className="border border-primary/20 rounded-lg p-4 space-y-2">
-                <div className="flex justify-between items-start">
-                  <h4 className="font-rajdhani font-bold text-primary">{project.title}</h4>
-                  <Badge variant="outline" className="border-primary/30 text-primary text-xs">
-                    {project.difficulty}
-                  </Badge>
-                </div>
-                <Badge 
-                  className={`text-xs ${
-                    project.status === 'completed' 
-                      ? 'bg-green-500/20 text-green-400 border-green-500/50' 
-                      : 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50'
-                  }`}
-                >
-                  {project.status.toUpperCase()}
-                </Badge>
-              </div>
-            ))}
           </div>
         </DialogContent>
       </Dialog>
