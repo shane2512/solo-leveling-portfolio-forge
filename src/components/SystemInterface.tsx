@@ -131,7 +131,8 @@ const SystemInterface = () => {
                   </div>
                   
                   <div className="relative">
-                    <Model3D useDummy={true} />
+                    <Model3D useDummy={false} modelPath="Shadowblade_Sentinel_0528172941_texture.glb" />
+
                   </div>
                 </div>
               </div>

@@ -48,6 +48,7 @@ interface Model3DProps {
   useDummy?: boolean; // Whether to use dummy model
 }
 
+
 const Model3D = ({ modelPath, useDummy = true }: Model3DProps) => {
   return (
     <div className="w-96 h-96 relative mx-auto">
