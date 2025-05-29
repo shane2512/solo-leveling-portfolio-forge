@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -18,20 +17,20 @@ const QuestBoard = () => {
       difficulty: "S-Rank",
       rewards: "+500 XP, +10 Frontend Mastery",
       screenshots: ["placeholder1.jpg", "placeholder2.jpg"],
-      github: "#",
-      demo: "#"
+      github: "https://github.com/username/solo-leveling-interface",
+      demo: "https://solo-leveling-demo.netlify.app"
     },
     {
       title: "One Time File sharing System",
-      objective: "Develop machine learning dashboard with real-time data visualization",
+      objective: "Develop secure file sharing system with one-time access links",
       tools: ["Python", "Streamlit", "MariaDB"],
       outcome: "Produces a secure one time access links",
       status: "completed",
       difficulty: "A-Rank",
-      rewards: "+350 XP, +15 Frontend Mastery ",
+      rewards: "+350 XP, +15 Backend Development",
       screenshots: ["placeholder3.jpg"],
-      github: "#",
-      demo: "#"
+      github: "https://github.com/username/file-sharing-system",
+      demo: "https://file-sharing-demo.herokuapp.com"
     },
     {
       title: "Deepfake Detection App",
@@ -42,10 +41,9 @@ const QuestBoard = () => {
       difficulty: "S-Rank",
       rewards: "+600 XP, +20 ML Skills",
       screenshots: [],
-      github: "#",
-      demo: "#"
+      github: "https://github.com/username/deepfake-detection",
+      demo: "https://deepfake-detector-demo.streamlit.app"
     },
-   
   ];
 
   const getStatusColor = (status: string) => {
@@ -121,6 +119,29 @@ const QuestBoard = () => {
                   ))}
                 </div>
 
+                {/* Always show project links */}
+                <div className="flex gap-4 pt-2">
+                  <Button
+                    variant="outline"
+                    className="border-primary/50 text-primary hover:bg-primary/10"
+                    asChild
+                  >
+                    <a href={quest.github} target="_blank" rel="noopener noreferrer">
+                      <Github size={16} className="mr-2" />
+                      Repository
+                    </a>
+                  </Button>
+                  <Button
+                    className="bg-gradient-to-r from-primary to-secondary text-background"
+                    asChild
+                  >
+                    <a href={quest.demo} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink size={16} className="mr-2" />
+                      Live Demo
+                    </a>
+                  </Button>
+                </div>
+
                 {expandedQuest === index && (
                   <div className="space-y-4 border-t border-primary/20 pt-4">
                     <div>
@@ -131,28 +152,6 @@ const QuestBoard = () => {
                     <div>
                       <h4 className="font-rajdhani font-bold text-secondary mb-2">Rewards:</h4>
                       <p className="text-primary">{quest.rewards}</p>
-                    </div>
-
-                    <div className="flex gap-4 pt-4">
-                      <Button
-                        variant="outline"
-                        className="border-primary/50 text-primary hover:bg-primary/10"
-                        asChild
-                      >
-                        <a href={quest.github}>
-                          <Github size={16} className="mr-2" />
-                          View Code
-                        </a>
-                      </Button>
-                      <Button
-                        className="bg-gradient-to-r from-primary to-secondary text-background"
-                        asChild
-                      >
-                        <a href={quest.demo}>
-                          <ExternalLink size={16} className="mr-2" />
-                          Live Demo
-                        </a>
-                      </Button>
                     </div>
                   </div>
                 )}

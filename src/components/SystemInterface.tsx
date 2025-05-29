@@ -1,8 +1,10 @@
-
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Terminal, User, Briefcase, Trophy, BookOpen, MessageSquare, FileText } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
 import Model3D from './Model3D';
 import SystemTerminal from './SystemTerminal';
 import StatsDisplay from './StatsDisplay';
@@ -18,6 +20,9 @@ const SystemInterface = () => {
   const [activeTab, setActiveTab] = useState('home');
   const [skillsDialogOpen, setSkillsDialogOpen] = useState(false);
   const [inventoryOpen, setInventoryOpen] = useState(false);
+  const [introDialogOpen, setIntroDialogOpen] = useState(false);
+  const [statsDialogOpen, setStatsDialogOpen] = useState(false);
+  const [projectsDialogOpen, setProjectsDialogOpen] = useState(false);
 
   const tabs = [
     { id: 'home', label: 'System Boot', icon: Terminal },
@@ -30,19 +35,48 @@ const SystemInterface = () => {
   ];
 
   const handleStartJourney = () => {
-    console.log('Start Journey clicked - opening skills dialog');
-    setSkillsDialogOpen(true);
+    console.log('Start Journey clicked - opening intro dialog');
+    setIntroDialogOpen(true);
   };
 
   const handleStatsClick = () => {
-    console.log('Stats clicked - navigating to stats tab');
-    setActiveTab('stats');
+    console.log('Stats clicked - opening stats dialog');
+    setStatsDialogOpen(true);
   };
 
   const handleInventoryClick = () => {
-    console.log('Inventory clicked - opening inventory sidebar');
-    setInventoryOpen(true);
+    console.log('Inventory clicked - opening projects dialog');
+    setProjectsDialogOpen(true);
   };
+
+  // Stats data for the popup
+  const stats = [
+    { name: 'Frontend Mastery', value: 70 },
+    { name: 'ML Skills', value: 70 },
+    { name: 'Generative AI', value: 90 },
+    { name: 'Problem Solving', value: 80 },
+    { name: 'Cloud Engineer', value: 50 },
+    { name: 'Leadership', value: 60 },
+  ];
+
+  // Projects data for the popup
+  const projects = [
+    {
+      title: "Solo Leveling System Interface",
+      status: "in-progress",
+      difficulty: "S-Rank"
+    },
+    {
+      title: "One Time File sharing System",
+      status: "completed",
+      difficulty: "A-Rank"
+    },
+    {
+      title: "Deepfake Detection App",
+      status: "completed",
+      difficulty: "S-Rank"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
@@ -132,7 +166,6 @@ const SystemInterface = () => {
                   
                   <div className="relative">
                     <Model3D useDummy={false} modelPath="Shadowblade_Sentinel_0528172941_texture.glb" />
-
                   </div>
                 </div>
               </div>
@@ -165,7 +198,98 @@ const SystemInterface = () => {
         </Tabs>
       </div>
 
-      {/* Dialogs and Sidebars */}
+      {/* Introduction Dialog */}
+      <Dialog open={introDialogOpen} onOpenChange={setIntroDialogOpen}>
+        <DialogContent className="max-w-2xl glass-effect border-primary/30">
+          <DialogHeader>
+            <DialogTitle className="font-orbitron text-primary text-xl neon-glow">
+              Welcome to My Digital Realm
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <p className="text-muted-foreground leading-relaxed">
+              Greetings! I'm Shane Joans, an S-Class Developer specializing in Frontend Architecture 
+              and Machine Learning Integration. This interactive portfolio showcases my journey through 
+              the digital realm, inspired by the Solo Leveling universe.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Navigate through different sections to explore my skills, completed quests (projects), 
+              and achievements. Each area reveals different aspects of my professional journey and 
+              technical expertise.
+            </p>
+            <div className="flex items-center gap-2 pt-4">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+              <span className="text-primary font-rajdhani">System Status: Online & Ready</span>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Stats Dialog */}
+      <Dialog open={statsDialogOpen} onOpenChange={setStatsDialogOpen}>
+        <DialogContent className="max-w-xl glass-effect border-primary/30">
+          <DialogHeader>
+            <DialogTitle className="font-orbitron text-primary text-xl neon-glow">
+              Hunter Profile Summary
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 max-h-[60vh] overflow-y-auto">
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((stat) => (
+                <div key={stat.name} className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="font-rajdhani text-sm">{stat.name}</span>
+                    <span className="text-primary font-bold text-sm">{stat.value}/100</span>
+                  </div>
+                  <Progress value={stat.value} className="h-2" />
+                </div>
+              ))}
+            </div>
+            <div className="pt-4 space-y-2">
+              <p className="text-muted-foreground text-sm">
+                <strong className="text-primary">Level:</strong> 15 | <strong className="text-primary">XP:</strong> 15,420/20,000
+              </p>
+              <p className="text-muted-foreground text-sm">
+                <strong className="text-primary">Rank:</strong> S-Class Developer
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Projects Dialog */}
+      <Dialog open={projectsDialogOpen} onOpenChange={setProjectsDialogOpen}>
+        <DialogContent className="max-w-xl glass-effect border-primary/30">
+          <DialogHeader>
+            <DialogTitle className="font-orbitron text-primary text-xl neon-glow">
+              Quest Inventory
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 max-h-[60vh] overflow-y-auto">
+            {projects.map((project, index) => (
+              <div key={index} className="border border-primary/20 rounded-lg p-4 space-y-2">
+                <div className="flex justify-between items-start">
+                  <h4 className="font-rajdhani font-bold text-primary">{project.title}</h4>
+                  <Badge variant="outline" className="border-primary/30 text-primary text-xs">
+                    {project.difficulty}
+                  </Badge>
+                </div>
+                <Badge 
+                  className={`text-xs ${
+                    project.status === 'completed' 
+                      ? 'bg-green-500/20 text-green-400 border-green-500/50' 
+                      : 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50'
+                  }`}
+                >
+                  {project.status.toUpperCase()}
+                </Badge>
+              </div>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Existing Dialogs and Sidebars */}
       <SkillsSummaryDialog 
         open={skillsDialogOpen} 
         onOpenChange={setSkillsDialogOpen} 
