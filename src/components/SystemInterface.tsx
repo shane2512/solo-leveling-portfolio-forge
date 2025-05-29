@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
@@ -165,7 +166,7 @@ const SystemInterface = () => {
                   </div>
                   
                   <div className="relative">
-                    <Model3D useDummy={false} modelPath="Shadowblade_Sentinel_0528172941_texture.glb" />
+                    <Model3D useDummy={true} />
                   </div>
                 </div>
               </div>

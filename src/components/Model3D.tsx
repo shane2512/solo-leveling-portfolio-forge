@@ -10,7 +10,6 @@ const DummyModel = () => {
 
   useFrame((state, delta) => {
     if (meshRef.current) {
-      meshRef.current.rotation.y += delta * 0.3;
       meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
     }
   });
@@ -31,11 +30,15 @@ const DummyModel = () => {
 
 // GLB Model Loader - for custom models
 const GLBModel = ({ modelPath }: { modelPath: string }) => {
-  const { scene } = useGLTF(modelPath);
-  const meshRef = useRef<any>(null!);
+  try {
+    const { scene } = useGLTF(modelPath);
+    const meshRef = useRef<any>(null!);
 
-  // Remove auto-rotation for custom model
-  return <primitive ref={meshRef} object={scene} scale={[2.5, 2.5, 2.5]} position={[0, -1, 0]} />;
+    return <primitive ref={meshRef} object={scene} scale={[2.5, 2.5, 2.5]} position={[0, -1, 0]} />;
+  } catch (error) {
+    console.log('Failed to load GLB model, falling back to dummy model');
+    return <DummyModel />;
+  }
 };
 
 interface Model3DProps {
@@ -44,10 +47,18 @@ interface Model3DProps {
 }
 
 const Model3D = ({ modelPath, useDummy = true }: Model3DProps) => {
+  const handleCanvasError = (error: any) => {
+    console.error('WebGL/Canvas error:', error);
+  };
+
   return (
     <div className="w-96 h-96 relative mx-auto">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl animate-glow-pulse"></div>
-      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 50 }}
+        onError={handleCanvasError}
+        gl={{ antialias: true, alpha: true }}
+      >
         {/* Enhanced lighting setup */}
         <ambientLight intensity={0.6} />
         <directionalLight position={[10, 10, 10]} intensity={1.2} color="#ffffff" />
