@@ -133,14 +133,14 @@ const SystemInterface = () => {
             sidebarCollapsed ? 'ml-16' : 'ml-64'
           }`}>
             <TabsContent value="home" className="m-0 h-screen">
-              <div className="relative h-full flex items-center justify-center">
-                <div className="grid lg:grid-cols-1 gap-12 items-center max-w-4xl mx-auto px-8">
-                  <div className="space-y-8 text-center">
-                    <div className="mb-8">
+              <div className="relative h-full flex items-center justify-center pt-8">
+                <div className="grid lg:grid-cols-1 gap-8 items-center max-w-4xl mx-auto px-8">
+                  <div className="space-y-6 text-center">
+                    <div className="mb-6">
                       <img 
                         src="/logo.png" 
                         alt="System Logo" 
-                        className="w-32 h-32 mx-auto object-contain filter drop-shadow-2xl opacity-90 hover:opacity-100 transition-all duration-300 hover:scale-105"
+                        className="w-24 h-24 mx-auto object-contain filter drop-shadow-2xl opacity-90 hover:opacity-100 transition-all duration-300 hover:scale-105"
                         loading="eager"
                         style={{ willChange: 'transform, opacity' }}
                       />
@@ -148,9 +148,9 @@ const SystemInterface = () => {
                     
                     <SystemTerminal />
                     
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                       <Button 
-                        className="w-full bg-gradient-to-r from-primary to-secondary text-background font-orbitron font-bold py-6 text-lg neon-glow hover:scale-105 transition-transform rounded-lg border-0"
+                        className="w-full bg-gradient-to-r from-primary to-secondary text-background font-orbitron font-bold py-5 text-lg neon-glow hover:scale-105 transition-transform rounded-lg border-0"
                         onClick={handleStartJourney}
                       >
                         {'{>'}{'>'}  Start Journey
@@ -158,14 +158,14 @@ const SystemInterface = () => {
                       <div className="grid grid-cols-2 gap-4">
                         <Button 
                           variant="outline"
-                          className="border-primary/50 primary-text-glow hover:bg-primary/10 font-rajdhani font-semibold py-4 hover:scale-105 transition-transform rounded-lg bg-transparent"
+                          className="border-primary/50 primary-text-glow hover:bg-primary/10 font-rajdhani font-semibold py-3 hover:scale-105 transition-transform rounded-lg bg-transparent"
                           onClick={handleStatsClick}
                         >
                           Stats
                         </Button>
                         <Button 
                           variant="outline"
-                          className="border-secondary/50 text-secondary hover:bg-secondary/10 font-rajdhani font-semibold py-4 hover:scale-105 transition-transform rounded-lg bg-transparent"
+                          className="border-secondary/50 text-secondary hover:bg-secondary/10 font-rajdhani font-semibold py-3 hover:scale-105 transition-transform rounded-lg bg-transparent"
                           onClick={handleInventoryClick}
                         >
                           Inventory
