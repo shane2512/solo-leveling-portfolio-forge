@@ -7,7 +7,9 @@ const VideoBackground = () => {
         loop
         muted
         playsInline
+        preload="auto"
         className="w-full h-full object-cover"
+        style={{ willChange: 'transform' }}
       >
         <source src="/background.mp4" type="video/mp4" />
       </video>

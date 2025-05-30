@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
@@ -23,7 +22,7 @@ const SystemInterface = () => {
   const [inventoryOpen, setInventoryOpen] = useState(false);
   const [introDialogOpen, setIntroDialogOpen] = useState(false);
   const [statsDialogOpen, setStatsDialogOpen] = useState(false);
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true); // Start collapsed
 
   const tabs = [
     { id: 'home', label: 'System Boot', icon: Terminal },
@@ -72,6 +71,8 @@ const SystemInterface = () => {
                 src="/logo.png" 
                 alt="Logo" 
                 className="w-10 h-10 object-contain filter drop-shadow-2xl opacity-90 hover:opacity-100 transition-opacity"
+                loading="eager"
+                style={{ willChange: 'opacity' }}
               />
               <h1 className="text-xl font-orbitron font-bold primary-text-glow">
                 SYSTEM v2.0.1
@@ -140,6 +141,8 @@ const SystemInterface = () => {
                         src="/logo.png" 
                         alt="System Logo" 
                         className="w-32 h-32 mx-auto object-contain filter drop-shadow-2xl opacity-90 hover:opacity-100 transition-all duration-300 hover:scale-105"
+                        loading="eager"
+                        style={{ willChange: 'transform, opacity' }}
                       />
                     </div>
                     
