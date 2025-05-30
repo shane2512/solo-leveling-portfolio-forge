@@ -80,9 +80,27 @@
   }
 
   .glass-effect {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+  }
+
+  .improved-text-visibility {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 
+      0 0 10px rgba(0, 0, 0, 0.8),
+      0 0 20px rgba(0, 0, 0, 0.6),
+      2px 2px 4px rgba(0, 0, 0, 0.8),
+      0 0 5px rgba(0, 255, 255, 0.3);
+    font-weight: 500;
+  }
+
+  .primary-text-glow {
+    color: rgb(0, 255, 255);
+    text-shadow: 
+      0 0 10px rgba(0, 255, 255, 0.8),
+      0 0 20px rgba(0, 255, 255, 0.5),
+      2px 2px 4px rgba(0, 0, 0, 0.9);
   }
 
   .skill-bar {
