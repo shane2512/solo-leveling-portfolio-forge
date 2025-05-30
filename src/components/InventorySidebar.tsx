@@ -1,5 +1,6 @@
 
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -35,54 +36,56 @@ const InventorySidebar = ({ open, onOpenChange }: InventorySidebarProps) => {
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent className="w-96 glass-effect border-primary/30">
+      <SheetContent className="w-96 glass-effect border-primary/30 flex flex-col">
         <SheetHeader>
           <SheetTitle className="font-orbitron text-primary neon-glow">
             {'>> SYSTEM INVENTORY'}
           </SheetTitle>
         </SheetHeader>
         
-        <div className="space-y-6 mt-6">
-          {/* Tools Section */}
-          <Card className="glass-effect border-primary/20">
-            <CardHeader>
-              <CardTitle className="font-orbitron text-secondary">Development Tools</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {tools.map((tool) => (
-                <div key={tool.name} className="flex items-center justify-between p-2 rounded border border-primary/20">
-                  <div className="space-y-1">
-                    <p className="font-rajdhani font-medium">{tool.name}</p>
-                    <p className="text-xs text-muted-foreground">{tool.type}</p>
+        <ScrollArea className="flex-1 pr-4">
+          <div className="space-y-6 mt-6">
+            {/* Tools Section */}
+            <Card className="glass-effect border-primary/20">
+              <CardHeader>
+                <CardTitle className="font-orbitron text-secondary">Development Tools</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {tools.map((tool) => (
+                  <div key={tool.name} className="flex items-center justify-between p-2 rounded border border-primary/20">
+                    <div className="space-y-1">
+                      <p className="font-rajdhani font-medium">{tool.name}</p>
+                      <p className="text-xs text-muted-foreground">{tool.type}</p>
+                    </div>
+                    <Badge className={`bg-gradient-to-r ${getRarityColor(tool.rarity)} text-white`}>
+                      {tool.rarity}
+                    </Badge>
                   </div>
-                  <Badge className={`bg-gradient-to-r ${getRarityColor(tool.rarity)} text-white`}>
-                    {tool.rarity}
-                  </Badge>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
+                ))}
+              </CardContent>
+            </Card>
 
-          {/* Projects Section */}
-          <Card className="glass-effect border-primary/20">
-            <CardHeader>
-              <CardTitle className="font-orbitron text-secondary">Quest Log</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {projects.map((project) => (
-                <div key={project.name} className="flex items-center justify-between p-2 rounded border border-primary/20">
-                  <div className="space-y-1">
-                    <p className="font-rajdhani font-medium">{project.name}</p>
-                    <p className="text-xs text-muted-foreground">{project.status}</p>
+            {/* Projects Section */}
+            <Card className="glass-effect border-primary/20">
+              <CardHeader>
+                <CardTitle className="font-orbitron text-secondary">Quest Log</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {projects.map((project) => (
+                  <div key={project.name} className="flex items-center justify-between p-2 rounded border border-primary/20">
+                    <div className="space-y-1">
+                      <p className="font-rajdhani font-medium">{project.name}</p>
+                      <p className="text-xs text-muted-foreground">{project.status}</p>
+                    </div>
+                    <Badge variant="outline" className="border-primary/50 text-primary">
+                      {project.difficulty}
+                    </Badge>
                   </div>
-                  <Badge variant="outline" className="border-primary/50 text-primary">
-                    {project.difficulty}
-                  </Badge>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-        </div>
+                ))}
+              </CardContent>
+            </Card>
+          </div>
+        </ScrollArea>
       </SheetContent>
     </Sheet>
   );
