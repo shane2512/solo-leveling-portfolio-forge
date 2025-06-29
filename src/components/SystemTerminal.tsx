@@ -5,10 +5,9 @@ const SystemTerminal = () => {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   
   const terminalLines = [
-    '>> Initializing Hunter System...',
-    '>> Loading User Profile: Shane Joans',
-    '>> Rank Assessment: S-Class Developer',
-    '>> Specialization: Frontend & ML Integration',
+    '>> Initializing System...',
+    '>> Loading User Profile...',
+    '>> Welcome, Visitor.',
     '>> System Status: OPERATIONAL',
     '>> Ready for Mission Assignment.'
   ];
@@ -39,33 +38,22 @@ const SystemTerminal = () => {
   }, [currentLineIndex]);
 
   return (
-    <div className="glass-effect rounded-lg p-6 border border-primary/30 bg-black/60 data-stream">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="flex gap-2">
-          <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-          <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
-        </div>
-        <span className="font-orbitron text-primary text-sm neon-glow">HUNTER TERMINAL v2.1</span>
+    <div className="glass-effect rounded-lg p-6 border border-primary/30 bg-black/50">
+      <div className="flex items-center gap-2 mb-4">
+        <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+        <span className="font-orbitron text-primary text-sm">SYSTEM TERMINAL</span>
       </div>
       
-      <div className="font-mono text-sm space-y-2 min-h-[140px] bg-black/50 p-4 rounded border border-primary/20 hologram-effect">
+      <div className="font-mono text-sm space-y-2 min-h-[120px] bg-black/40 p-4 rounded border border-primary/20">
         {displayedText.split('\n').map((line, index) => (
           <div key={index} className="flex items-center gap-2">
             <span className="text-primary font-bold">$</span>
             <span className="text-green-400 font-medium">{line}</span>
             {index === currentLineIndex && (
-              <span className="w-2 h-4 bg-green-400 animate-pulse ml-1 terminal-cursor"></span>
+              <span className="w-2 h-4 bg-green-400 animate-pulse ml-1"></span>
             )}
           </div>
         ))}
-        
-        {currentLineIndex >= terminalLines.length && (
-          <div className="flex items-center gap-2 mt-4 p-2 bg-primary/10 rounded border border-primary/30">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-            <span className="text-primary font-rajdhani text-xs">AWAITING INPUT...</span>
-          </div>
-        )}
       </div>
     </div>
   );
